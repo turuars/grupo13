@@ -90,6 +90,10 @@
 
               
       <div style="text-align: right; margin-right: 100px; color: white;">
+        {% if user.is_authenticated %}
+        Hola!{{ user.username }} &nbsp; &nbsp;<a href="{% url 'cerrar_sesion' %}" style="color: white; ">Cerrar sesión</a>
+  
+        {% endif %}
 
         </ul>
       </div>
