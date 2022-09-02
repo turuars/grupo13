@@ -1,0 +1,59 @@
+{% extends "proyectoccvaapp/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- Fondo (verde Home) page 1 -->
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0">
+          <a href="#" class="link">
+            <span class="fa-stack fa-lg">
+
+            
+              <form method="post" action="" style="color: white;" >
+
+                {% csrf_token  %}
+                
+                <div style="width: 75%; margin:auto;">
+                
+                {{form|crispy}}
+                
+                
+                <button type="submit" class="btn btn success"> Loguear </button>
+          </a>
+          <a href="#" class="link">
+            <span class="fa-stack fa-lg">
+            </span>
+          </a>
+      </p>
+      <p class="m-0 mbt">
+
+        {% if user.is_authenticated %}
+
+        Hola! {{ user.username }}  &nbsp; &nbsp;<a href="{% url 'cerrar_sesion' %}" style="color: white; ">Cerrar sesión</a>
+  
+        {% else %}
+  
+        si no estas registrado haz click aqui➡️
+        <a href="{% url 'logear' %}" style="color: white;" ></a> &nbsp;<a href="{% url 'Logueo' %}" style="color: white; ">Registro </a>
+  
+  
+        {% endif %}
+        
+        
+        </div>
+
+
+
+
+</div>
+
+</form>
+
+
+
+{% endblock %}
